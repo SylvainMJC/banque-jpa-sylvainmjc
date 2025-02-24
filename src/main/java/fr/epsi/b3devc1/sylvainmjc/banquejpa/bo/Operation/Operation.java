@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE")
+@DiscriminatorValue("O")
 public class Operation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +19,15 @@ public class Operation {
 
     @ManyToOne
     private Compte compte;
+
+    public Operation() {}
+
+    public Operation(double montant, String motif, LocalDateTime date, Compte compte) {
+        this.montant = montant;
+        this.motif = motif;
+        this.date = date;
+        this.compte = compte;
+    }
 
     public Integer getId() {
         return id;

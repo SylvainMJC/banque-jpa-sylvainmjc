@@ -7,6 +7,8 @@ import jakarta.persistence.*;
 public class LivretA extends Compte {
     private double taux;
 
+    public LivretA() {}
+
     public double getTaux() {
         return taux;
     }

@@ -16,6 +16,15 @@ public class Adresse {
     private String codePostal;
     private String ville;
 
+    public Adresse() {}
+
+    public Adresse(String numero, String rue, String codePostal, String ville) {
+        this.numero = numero;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+    }
+
     public Integer getId() {
         return id;
     }

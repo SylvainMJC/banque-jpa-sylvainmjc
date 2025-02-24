@@ -19,11 +19,18 @@ public abstract class Compte {
     @ManyToOne
     private Client client;
 
-    @ManyToOne
-    private Banque banque;
 
     @OneToMany(mappedBy = "compte")
     private List<Operation> operations;
+
+    public Compte() {}
+
+    public Compte(String numero, double solde, Client client, List<Operation> operations) {
+        this.numero = numero;
+        this.solde = solde;
+        this.client = client;
+        this.operations = operations;
+    }
 
     public Integer getId() {
         return id;
@@ -57,13 +64,7 @@ public abstract class Compte {
         this.client = client;
     }
 
-    public Banque getBanque() {
-        return banque;
-    }
 
-    public void setBanque(Banque banque) {
-        this.banque = banque;
-    }
 
     public List<Operation> getOperations() {
         return operations;

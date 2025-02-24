@@ -21,6 +21,20 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<Compte> comptes;
 
+    @ManyToOne
+    private Banque banque;
+
+    public Client() {}
+
+    public Client(double montant, String motif, LocalDateTime date, Adresse adresse, List<Compte> comptes, Banque banque) {
+        this.montant = montant;
+        this.motif = motif;
+        this.date = date;
+        this.adresse = adresse;
+        this.comptes = comptes;
+        this.banque = banque;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -67,5 +81,13 @@ public class Client {
 
     public void setComptes(List<Compte> comptes) {
         this.comptes = comptes;
+    }
+
+    public Banque getBanque() {
+        return banque;
+    }
+
+    public void setBanque(Banque banque) {
+        this.banque = banque;
     }
 }

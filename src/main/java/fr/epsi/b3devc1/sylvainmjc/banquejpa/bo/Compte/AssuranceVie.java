@@ -9,6 +9,13 @@ public class AssuranceVie extends Compte {
     private LocalDate dateFin;
     private double taux;
 
+    public AssuranceVie() {}
+
+    public AssuranceVie(LocalDate dateFin, double taux) {
+        this.dateFin = dateFin;
+        this.taux = taux;
+    }
+
     public LocalDate getDateFin() {
         return dateFin;
     }

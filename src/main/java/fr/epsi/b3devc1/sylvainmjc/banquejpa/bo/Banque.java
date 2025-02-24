@@ -13,7 +13,23 @@ public class Banque {
     private String nom;
 
     @OneToMany(mappedBy = "banque")
-    private List<Compte> comptes;
+    private List<Client> clients;
+
+
+    public Banque() {}
+
+    public Banque(String nom, List<Client> clients) {
+        this.nom = nom;
+        this.clients = clients;
+    }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
+    }
 
     public Integer getId() {
         return id;
@@ -29,13 +45,5 @@ public class Banque {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public List<Compte> getComptes() {
-        return comptes;
-    }
-
-    public void setComptes(List<Compte> comptes) {
-        this.comptes = comptes;
     }
 }
